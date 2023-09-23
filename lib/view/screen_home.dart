@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code/view/screen_generator.dart';
+import 'package:qr_code/view/screen_scanner.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
@@ -26,8 +27,17 @@ class ScreenHome extends StatelessWidget {
                 text: "Generator",
               ),
             ),
-            CostomeQrContainer(
-              text: "Scanner",
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ScreenScanner(),
+                  ),
+                );
+              },
+              child: CostomeQrContainer(
+                text: "Scanner",
+              ),
             ),
           ],
         ),

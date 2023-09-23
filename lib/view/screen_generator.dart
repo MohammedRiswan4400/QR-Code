@@ -54,12 +54,16 @@ class _ScreenGeneratorState extends State<ScreenGenerator> {
               // obscureText: true,
             ),
           ),
+          SizedBox(
+            height: 40,
+          ),
           qrData.isEmpty
               ? const SizedBox()
               : QrImageView(
                   data: qrData,
                   version: QrVersions.auto,
                   size: 200,
+                  backgroundColor: Colors.white,
                 ),
         ],
       ),
