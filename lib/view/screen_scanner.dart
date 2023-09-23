@@ -2,8 +2,8 @@
 
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:qr_code/view/screen_generator.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import '../model/scanner_widgets.dart';
 
 class ScreenScanner extends StatefulWidget {
   const ScreenScanner({super.key});
@@ -72,33 +72,6 @@ class _ScreenScannerState extends State<ScreenScanner> {
         () {
           this.barcode = barcode;
         },
-      ),
-    );
-  }
-}
-
-class ScanWidgets extends StatelessWidget {
-  const ScanWidgets({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Align(
-      alignment: Alignment.topCenter,
-      child: Column(
-        children: [
-          CostomeAppBar(
-            title: "Scan Qr Code",
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            "Please Scan Your QR Code",
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-          ),
-        ],
       ),
     );
   }

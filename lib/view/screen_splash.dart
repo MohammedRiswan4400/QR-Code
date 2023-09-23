@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qr_code/view/screen_home.dart';
+import '../controller/splash_functions.dart';
 
 class ScreenSplash extends StatefulWidget {
   const ScreenSplash({super.key});
@@ -29,13 +29,4 @@ class _ScreenSplashState extends State<ScreenSplash> {
       ),
     );
   }
-}
-
-Future gotoHome(context) async {
-  await Future.delayed(const Duration(seconds: 3));
-  Navigator.of(context).pushReplacement(
-    MaterialPageRoute(
-      builder: (context) => const ScreenHome(),
-    ),
-  );
 }
