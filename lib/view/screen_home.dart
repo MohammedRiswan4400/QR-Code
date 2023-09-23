@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_code/view/screen_generator.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
@@ -6,55 +7,74 @@ class ScreenHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         height: double.infinity,
         width: double.infinity,
         child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    // blurStyle: BlurStyle.normal,
-                    blurRadius: 3,
-                    offset: Offset(
-                      5,
-                      5,
-                    ),
-                    color: Color.fromARGB(255, 0, 0, 0),
+            HomeTitle(),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ScreenGenerator(),
                   ),
-                ],
-                borderRadius: BorderRadius.circular(8),
-                gradient: LinearGradient(
-                  colors: [
-                    // Color.fromARGB(255, 0, 255, 242),
-                    Color.fromARGB(255, 48, 59, 125),
-                    Color.fromARGB(255, 0, 255, 76),
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+                );
+              },
+              child: CostomeQrContainer(
+                text: "Generator",
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Text(
-                  "QR Code",
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            CostomeQrContainer(
-              text: "Generator",
             ),
             CostomeQrContainer(
               text: "Scanner",
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class HomeTitle extends StatelessWidget {
+  const HomeTitle({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: const [
+          BoxShadow(
+            // blurStyle: BlurStyle.normal,
+            blurRadius: 3,
+            offset: Offset(
+              5,
+              5,
+            ),
+            color: Color.fromARGB(255, 0, 0, 0),
+          ),
+        ],
+        borderRadius: BorderRadius.circular(8),
+        gradient: const LinearGradient(
+          colors: [
+            // Color.fromARGB(255, 0, 255, 242),
+            Color.fromARGB(255, 48, 59, 125),
+            Color.fromARGB(255, 0, 255, 76),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: const Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Text(
+          "QR Code",
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
@@ -90,7 +110,7 @@ class CostomeQrContainer extends StatelessWidget {
               top: 100,
               bottom: 0,
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   // border: Border.all(
                   //   width: 3,
                   // ),
@@ -100,7 +120,7 @@ class CostomeQrContainer extends StatelessWidget {
                 child: Center(
                   child: Text(
                     text,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 30,
                       color: Color.fromARGB(255, 0, 255, 128),
                       fontWeight: FontWeight.bold,
